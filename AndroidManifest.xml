@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.mrocker.push.demo"
+          android:versionCode="2"
+          android:versionName="1.2.1">
+
+    <uses-sdk
+            android:minSdkVersion="8"
+            android:targetSdkVersion="18"/>
+
+    <!-- Push service 运行需要的权限 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!--开机启动-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <!--发送持久广播-->
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <!--修改全局系统设置-->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <!--振动-->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <!--如果需要唤醒屏幕，需要添加此权限-->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+            android:allowBackup="true"
+            android:icon="@drawable/logo"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar" android:name=".DemoApplication">
+        <activity
+                android:name="com.mrocker.push.demo.MainActivity"
+                android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".CustomViewActivity"/>
+
+
+        <!--mpush-->
+
+        <activity android:name="com.mrocker.push.richmedia.MPushWebView">
+            <intent-filter>
+                <action android:name="com.mrocker.push.demo"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <service
+                android:name="com.mrocker.push.service.PushService"
+                android:process=":push"/>
+
+        <receiver android:name="com.mrocker.push.service.PushServiceReceiver"
+                  android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.CMD"/>
+                <action android:name="android.mpushservice.action.notification.SHOW"/>
+                <action android:name="android.mpushservice.action.media.MESSAGE"/>
+                <action android:name="android.mpushservice.action.media.CLICK"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".MyPushMessageReceiver"
+                  android:process=":push">
+            <intent-filter>
+                <action android:name="android.mpushservice.action.media.MESSAGE"/>
+                <action android:name="android.mpushservice.action.media.CLICK"/>
+                <action android:name="android.mpushservice.action.media.TOKEN"/>
+            </intent-filter>
+        </receiver>
+        
+		<!-- 如果使用独立托管的mpush server，则需要正确配置MPUSH_GATEWAY -->
+<!-- 		<meta-data android:name="MPUSH_GATEWAY" android:value="http://42.96.184.124:3000"/> -->
+        <meta-data android:name="MPUSH_APPID" android:value="5386a17859ba0740ce00001b"/>
+    </application>
+
+</manifest>
