@@ -1,2 +1,15 @@
-/bin
-/gen
+.gradle
+AndroidDemo.iml
+local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+mPushDemo/.idea
+mPushDemo/gen
+mPushDemo/bin
+mPushDemo/out
+mPushDemo/mPushDemo.iml
+/.classpath
+/.settings
+.idea/

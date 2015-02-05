@@ -1,10 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:background="#e9eef2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                tools:context=".MainActivity">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:background="#e9eef2"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context=".MainActivity">
     <LinearLayout
             android:gravity="center_vertical"
             android:layout_width="match_parent"
@@ -35,6 +35,32 @@
                 android:id="@+id/del_local"
                 android:onClick="del_local"
                 android:text="清除\n本地推送"
+                android:layout_margin="5dp"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <EditText
+                android:id="@+id/mobile"
+                android:hint="请输入手机号"
+                android:inputType="phone"
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <Button
+                android:id="@+id/authsms"
+                android:onClick="authsms"
+                android:text="验证短信"
+                android:layout_margin="5dp"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"/>
+        <Button
+                android:id="@+id/copyuuid"
+                android:onClick="copyuuid"
+                android:text="复制pushId"
                 android:layout_margin="5dp"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"/>

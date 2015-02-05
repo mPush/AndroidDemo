@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.mrocker.push.demo">
+
+    <application
+            android:name="com.mrocker.push.demo.DemoApplication"
+            android:allowBackup="true"
+            android:icon="@drawable/logo"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        <activity
+                android:name="com.mrocker.push.demo.MainActivity"
+                android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.mrocker.push.demo.CustomViewActivity" />
+
+        <!-- 如果使用独立托管的mpush server，则需要正确配置MPUSH_GATEWAY -->
+        <!-- <meta-data android:name="MPUSH_GATEWAY" android:value="http://"/> -->
+        <meta-data android:name="MPUSH_APPID" android:value="5386a17859ba0740ce00001b" />
+        <!--如果使用区分渠道更新，则需要正确配置MPUSH_CHANNEL，示例如下 -->
+        <!--<meta-data android:name="MPUSH_CHANNEL" android:value="app91" />-->
+    </application>
+
+</manifest>
