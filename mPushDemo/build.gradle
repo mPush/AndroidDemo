@@ -9,9 +9,6 @@ buildscript {
 apply plugin: 'com.android.application'
 
 repositories {
-    flatDir {
-        dirs 'libs'
-    }
     maven{
         url "https://github.com/mpush/android-mvn-mpush/raw/master"
     }
