@@ -22,7 +22,7 @@
         <!-- <meta-data android:name="MPUSH_GATEWAY" android:value="http://"/> -->
         <meta-data android:name="MPUSH_APPID" android:value="5386a17859ba0740ce00001b" />
         <!--如果使用区分渠道更新，则需要正确配置MPUSH_CHANNEL，示例如下 -->
-        <!--<meta-data android:name="MPUSH_CHANNEL" android:value="app91" />-->
+        <meta-data android:name="MPUSH_CHANNEL" android:value="mpush" />
     </application>
 
 </manifest>
